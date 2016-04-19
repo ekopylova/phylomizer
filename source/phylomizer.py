@@ -273,12 +273,12 @@ if __name__ == "__main__":
 
   ## Dump into stderr - when requested all verbose info or just stderr
   if parameters["verbose"] > 0:
-    print >> sys.stderr, ("\n###\tTOTAL Time\t[ '%s' ]\t%s\n###") % (steps, total)
+    print(("\n###\tTOTAL Time\t[ '%s' ]\t%s\n###") % (steps, total), file=sys.stderr)
 
   ## Dump into logfile - when requested all verbose info or just logfile
   if parameters["verbose"] == 1:
     ## Get output folder/generic filename - Set output filename and log file
     oFile = os.path.join(parameters["out_directory"], parameters["prefix"])
     logFile = open(oFile + ".log", "a+")
-    print >> logFile, ("\n###\tTOTAL Time\t[ '%s' ]\t%s\n###") % (steps, total)
+    print(("\n###\tTOTAL Time\t[ '%s' ]\t%s\n###") % (steps, total), file=logFile)
     logFile.close()
